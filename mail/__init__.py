@@ -20,6 +20,7 @@ def callback(ch, method, properties, body):
 credentials = pika.PlainCredentials(username=os.getenv("RABBITMQ_USERNAME"), password=os.getenv("RABBITMQ_PASSWORD"))
 connection = pika.BlockingConnection(pika.ConnectionParameters(os.getenv("RABBITMQ_HOST"), os.getenv("RABBITMQ_PORT"), credentials=credentials))
 channel = connection.channel()
+channel.queue_declare(queue='email_queue')
 
 channel.basic_consume(queue='email_queue', on_message_callback=callback, auto_ack=True)
 
