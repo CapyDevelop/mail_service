@@ -30,7 +30,8 @@ def send_verify_message(nickname, code):
     # password = "gwinxxr9ecT8hkA7ckEw"
 
     # s = smtplib.SMTP('smtp.mail.ru', 465)
-    s = smtplib.SMTP('mail.hosting.reg.ru', 587)
+    # s = smtplib.SMTP('mail.hosting.reg.ru', 587)
+    s = smtplib.SMTP('smtp.eu.mailgun.org', 587)
     print("smtp")
     s.starttls()
     print("starttls")
