@@ -13,7 +13,7 @@ env = Environment(loader=FileSystemLoader(os.path.abspath("./mail/templates")))
 
 
 def send_verify_message(nickname, code):
-    content = env.get_template("verify_code.html").render({"nickname": nickname, "code": code})
+    content = env.get_template("verify_code.html").render({"nickname": nickname.split("@")[0], "code": code})
     print(content)
     # content = render_template("verify_code.html", nickname=nickname, code=12345)
 
